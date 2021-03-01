@@ -39,7 +39,7 @@
         map = new google.maps.Map(document.getElementById('map'), {
           center: new google.maps.LatLng(-19.257753, 146.823688),
           zoom: 2,
-          mapTypeId: 'satellite'
+          mapTypeId: ("terrain","roadmap","satellite"),
         });
 
         var kmlLayer = new google.maps.KmlLayer(src, {
@@ -47,6 +47,25 @@
           preserveViewport: false,
           map: map
         });
+        var myPoly = new google.maps.Polygon({
+
+path: polyPath,
+
+map: map,
+
+strokeColor: "#FF2222",
+
+strokeOpacity: 1.0,
+
+strokeWeight: 3,
+
+fillColor: "#21212C",
+
+fillOpacity: 0.3,
+
+});
+
+myPoly.setEditable(true);
         kmlLayer.addListener('click', function(event) {
           var content = event.featureData.infoWindowHtml;
           var testimonial = document.getElementById('capture');
@@ -55,7 +74,7 @@
       }
     </script>
     <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWmxbJ_gIYV-pLQWLUhSaI9k7qCSYhPZ8&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDox80igvDRu-M4o-af5RCt2BmuhUuSLjE&callback=initMap">
     </script>
   </body>
 </html>
